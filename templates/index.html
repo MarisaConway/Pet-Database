@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CR + Pets</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+    <style>
+        
+        body {
+            text-align: center;
+        }
+        
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 70%;
+            margin:auto;
+            }
+            
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            }
+            
+        tr:nth-child(even) {
+            background-color: #dddddd;
+            }
+    </style>
+</head>
+<body>
+    <h1>All My Friends!</h1>
+    <!-- <table style="width:50%"> -->
+            <!-- <tr>
+                <th>ID</th>
+                <th>Name</th> 
+                <th>Type</th>
+            </tr> -->
+    <table style = "width:50%">
+        <tr>
+            <th>ID</th>
+            <th>Name</th> 
+            <th>Type</th>
+        </tr>
+
+    {% for one_pet in all_pets %}
+        <tr>
+            <td></td>
+            <td>{{one_pet["name"]}}</td>
+            <td>{{one_pet["type"]}}</td>
+        </tr>  
+    {% endfor %}
+    </table>
+    <hr>
+
+    <h1>Add a Friend</h1>
+    <form action="/create_friend" method="POST">
+        <p>Name: <input type="text" name="name"></p>
+        <p>Type: <input type="text" name="type"></p>
+        <input type="submit" value="Add">
+    </form>
+
+</body>
+</html>
